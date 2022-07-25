@@ -13,17 +13,12 @@ const reducer = (state = startingstate, action) => {
     case "addmeta":
       state = [...state, action.payload]; //destructring data
 
-
-
-    case "deletemeta":
+    case "deletemeta" :
       const deletedata = state.filter(
         (mapid) => mapid.id !== action.payload && mapid
       );
       state = deletedata;
       return state;
-
-
-
 
     case "updatemeta":
       const editmeta = state.map((data) =>

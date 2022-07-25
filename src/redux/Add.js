@@ -1,4 +1,4 @@
-import { Button, Toast } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -64,12 +64,13 @@ const Add = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="container gredian">
       <div className="row">
         <div className="col-lg-6 mt-5">
           <img
+            alt="logo"
             src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aW5zdGFncmFtJTIwcHJvZmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            className="img-fluid"
+            className="img-fluid img"
             id="image"
           />
         </div>
@@ -81,8 +82,8 @@ const Add = () => {
                   <h1 className="font"> 🅼🅴🆃🅰 🅶🆁🅰🅼</h1>
                 </i>
               </div>
-              <label>FIRST NAME :</label>
-              <input
+              <label>FIRST NAME </label>
+              : <input
                 type="text"
                 name="firstname"
                 autoFocus
@@ -92,27 +93,29 @@ const Add = () => {
             </div>
             <br />
             <div>
-              <label>LAST NAME :</label>
-              <input type="text" name="lastname" onChange={(e) => change(e)} />
+              <label>LAST NAME </label>
+              : <input type="text" name="lastname" onChange={(e) => change(e)} />
             </div>
             <p style={{ color: "red" }}>{error.lastname}</p>
             <br />
             <div>
-              <label>EMAIL ID :</label>
-              <input type="email" name="email" onChange={(e) => change(e)} />
+              <label className="mail">EMAIL ID    </label>
+              : <input type="email" name="email" onChange={(e) => change(e)} />
               <p style={{ color: "red" }}>{error.email}</p>
             </div>
             <br />
             <div>
-              <label>META NAME :</label>
-              <input type="text" name="metaname" onChange={(e) => change(e)} />
+              <label>META NAME </label>
+              : <input type="text" name="metaname" onChange={(e) => change(e)} />
               <p style={{ color: "red" }}>{error.metaname}</p>
             </div>
             <br />
             <div>
-              <Button type="reset" variant="outline-danger">
+              
+              <Button className="btn" type="reset" variant="outline-danger">
                 CANCEL
               </Button>
+              
               <Button type="submit" variant="outline-success">
                 LOGIN
               </Button>

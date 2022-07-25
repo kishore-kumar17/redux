@@ -1,0 +1,17 @@
+.box{
+    border:1px solid black;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: blanchedalmond;
+    opacity: 1.2;
+
+}
+
+    input:invalid{animation: shake 300ms;}
+
+@keyframes shake{
+    25%{transform :translateX(4px);};
+    50%{transform :translateX(-4px);};
+    75%{transform :translateX(4px);}
+
+}

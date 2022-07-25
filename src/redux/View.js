@@ -4,12 +4,13 @@ import CardHeader from "react-bootstrap/esm/CardHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import swal from 'sweetalert';
 
 const View = () => {
   const storeview = useSelector((state) => state);
   const dispatch = useDispatch();
   const nav =useNavigate();
-  const toat = () => {
+  const tost = (id) => {
     toast.danger("DELETED SUCCESSFULLY");
   }
 
@@ -19,8 +20,27 @@ const View = () => {
 
 const del =(id)=>{
 dispatch({type:"deletemeta",payload :id});
-toat();
-//tost
+// tost()
+
+
+// MODEL POP-UP:
+swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Poof! Your imaginary file has been deleted successfully!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your imaginary file is safe!");
+  }
+});
+
  }
 
  const edit =(id)=>{
@@ -33,7 +53,7 @@ nav(`/edit/${id}`)
   return (
     <div>
       <h4>META post</h4>
-      <Link to="/">
+      <Link to="/add">
         <Button variant="outline-primary">NEW LOGIN</Button>
       </Link>
       {storeview.map((mapview) => {
@@ -53,9 +73,13 @@ nav(`/edit/${id}`)
             </Card.Body>
             <Button variant="outline-secondary" onClick={()=>edit(mapview.id)}>UPDATE</Button>
             <Button onClick={()=>del(mapview.id)} variant="outline-danger">DELETE</Button>
+            <br/>
           </div>
+          
         );
+        
       })}
+      
     </div>
   );
 };

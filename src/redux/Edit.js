@@ -29,7 +29,6 @@ const Edit = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     //mail valid regex
-   
 
     if (!input.firstname) {
       seterror({ firstname: "First name is must" });
@@ -37,7 +36,7 @@ const Edit = () => {
       seterror({ lastname: "last name is must" });
     } else if (!input.email) {
       seterror({ email: "email is must" });
-    }  else if (!input.metaname) {
+    } else if (!input.metaname) {
       seterror({ metaname: "is must" });
     } else {
       const alldata = {

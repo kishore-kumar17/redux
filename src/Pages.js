@@ -1,0 +1,33 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Pages = () => {
+  return (
+    <div>
+      <h1>PLAN FOR THE WEEK I HAVE EXCECUTED</h1>
+      <ul style={{listStyle:'circle'}}>
+        <li>
+          <Link to="/">REDUX </Link>
+        </li>
+        <li>
+          <Link to="/add">REDUXadd </Link>
+        </li>
+        <li>
+          <Link to="/view">VIEW</Link>
+        </li>
+        {/* <li>
+          <Link to="/edit">Edit</Link>
+        </li> */}
+        <li>
+          <Link to="/counter">toolkit counter</Link>
+        </li>
+        <li>
+          <Link to="/crud">crud</Link>
+        </li>
+       
+      </ul>
+    </div>
+  );
+};
+
+export default Pages;
