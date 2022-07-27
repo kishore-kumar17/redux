@@ -7,12 +7,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createStore } from 'redux';
 import reducer from './redux/reducer';
 import { Provider } from 'react-redux';
+import store   from './redux crud/store';
 
-const store = createStore(reducer);
+// const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
+  // <Provider store={store}>
+  //   <App />
+  // </Provider>
+   <Provider store={store}>
     <App />
   </Provider>
     

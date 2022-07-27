@@ -19,7 +19,7 @@ function App() {
           <Route path="/edit/:id" element={<Edit />}></Route> 
           <Route path="/counter" element={<Counter />}></Route> 
           <Route path="/crud" element={<Create />}></Route> 
-          {/* <Route path="/viewcrud" element={<Viewcrud />}></Route>  */}
+          <Route path="/viewcrud" element={<Viewcrud />}></Route> 
         </Routes>
       </BrowserRouter>
     </div>

@@ -115,6 +115,7 @@ const Add = () => {
               <Button className="btn" type="reset" variant="outline-danger">
                 CANCEL
               </Button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               
               <Button type="submit" variant="outline-success">
                 LOGIN

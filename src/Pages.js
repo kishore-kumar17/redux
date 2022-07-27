@@ -24,7 +24,9 @@ const Pages = () => {
         <li>
           <Link to="/crud">crud</Link>
         </li>
-       
+        <li>
+          <Link to="/viewcrud">viewcrud</Link>
+        </li>
       </ul>
     </div>
   );

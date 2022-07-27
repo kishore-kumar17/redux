@@ -2,11 +2,22 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./Create.css";
+import { useDispatch } from "react-redux";
+import { addUsers } from "./postSlice";
 
 const Create = () => {
   const [data, setdata] = useState({});
   const [error, seterror] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const val = {
+    name:data.name,
+    fathersname:data.fathersname,
+    adharnumber:data.adharnumber,
+    mobilenumber:data.mobilenumber,
+    dob:data.dob
+  }
+
 
 //adhar card regex ;
 // const adhar = ^\d{4}\s\d{4}\s\d{4}$ ;
@@ -25,10 +36,19 @@ const Create = () => {
     }
     // console.log(data);
   };
+
+
+
+
   const submit = (e) => {
     e.preventDefault();
     setdata({ ...data, [e.target.name]: e.target.value });
-    console.log(data);
+    // console.log(data);
+
+
+
+
+dispatch(addUsers(val))
     navigate("/viewcrud");
   };
 
@@ -80,13 +100,13 @@ const Create = () => {
             </div>
             <br />
             <div>
-              <Form.Label> ADDRESS :</Form.Label>
+              <Form.Label> DOB :</Form.Label>
               <Form.Control
-                type="address"
-                name="address"
+                type="date"
+                name="dob"
                 onChange={(e) => change(e)}
               ></Form.Control>
-              <span style={{ color: "red" }}>{error.address}</span>
+              <span style={{ color: "red" }}>{error.dob}</span>
             </div>
             <br />
             <div>
