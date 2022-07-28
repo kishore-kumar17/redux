@@ -27,6 +27,9 @@ const Pages = () => {
         <li>
           <Link to="/viewcrud">viewcrud</Link>
         </li>
+        <li>
+          <Link to="/editcrud">editcrud</Link>
+        </li>
       </ul>
     </div>
   );

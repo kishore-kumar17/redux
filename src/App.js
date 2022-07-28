@@ -7,6 +7,7 @@ import Pages from "./Pages";
 import Counter from "./toolkit/Counter";
 import Create from "./redux crud/Create";
 import Viewcrud from "./redux crud/Viewcrud";
+import Editcrud from "./redux crud/Editcrud";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/counter" element={<Counter />}></Route> 
           <Route path="/crud" element={<Create />}></Route> 
           <Route path="/viewcrud" element={<Viewcrud />}></Route> 
+          <Route path="/editcrud/:id" element={<Editcrud  />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

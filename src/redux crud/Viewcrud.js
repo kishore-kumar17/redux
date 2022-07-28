@@ -2,73 +2,91 @@ import React from "react";
 import "./Viewcrud.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "./postSlice";
-import { Button, Card, Container, Row, Spinner } from "react-bootstrap";
+import { deleteUsers, fetchUsers } from "./postSlice";
+import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
 
 const Viewcrud = () => {
   const dispatch = useDispatch();
-  const nav =useNavigate();
+  const nav = useNavigate();
+  const navi = useNavigate();
   const post = useSelector((state) => state.post);
-  console.log(post);
+  // console.log(post);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
 
+  const change = (e) => {
+    nav("/crud");
+  };
 
+  const deletedata = (id) => {
+    dispatch(deleteUsers(id));
+    dispatch(fetchUsers());
+  };
 
-  const change =(e)=>{
-    nav("/crud")
-  }
+  const editdata = (id) => {
+    navi(`/editcrud/${id}`);
+  };
 
   return (
     <div>
       <h1>ADHAR CARD DETAILS</h1>
-      <Button style={{marginLeft:'1200px',borderRadius:'20px'}}   variant="outline-danger"onClick={(e)=>change(e)} >ADD ADHAR</Button>
-     
-     
-     
-      {post.loading ? (
-        <div>loading...</div>
-      ) : (
-        post.posts.adhar &&
-        post.posts.adhar.map((data, i) => {
-          return (
-            <div>
-              <Container>
-                <Row>
-                  <div className="col-3">
-                    <Card style={{ width: "18rem" }}>
+
+      <Button variant="outline-danger" onClick={(e) => change(e)}>
+        ADD NEW ADHAR
+      </Button>
+
+      <div className="container">
+        <div className="row">
+          {!post.loading &&
+            post.posts &&
+            post.posts.map((data, i) => {
+              return (
+                <div key={i}>
+                  <div className="col-lg-4-md-6 mt-3">
+                    <Card style={{ width: "600px" }}>
                       <Card.Img
                         variant="top"
                         src="https://thumbs.dreamstime.com/b/user-icon-member-login-vector-isolated-white-background-form-155134186.jpg"
+                        // style={{ width: "200px" }}
                       />
-                      <hr/>
+                      <hr />
                       <Card.Body>
                         <Card.Title> ADHAR CARD DETAILS</Card.Title>
                         <Card.Text>
                           <p>NAME : {data.name}</p>
-                          {/* <p>FAHTHER's NAME :{ data.fathersname}</p> */}
-                          <p> DOB : {data.dob}</p>
+                          <p>FAHTHER's NAME :{data.fathername}</p>
+                          <p>DOB : {data.dob}</p>
                           <p> MOBILE NUMBER : {data.mobilenumber}</p>
                           <hr />
-                          <p key={i}>ADHAR NUMBER : {data.adharnumber}</p>
+                          <p>ADHAR NUMBER : {data.adharnumber}</p>
                         </Card.Text>
                         <hr />
-                        <Button variant="outline-primary">UPDATE</Button>{" "}
+                        <Button
+                          variant="outline-primary"
+                          onClick={(e) => editdata(data.id)}
+                        >
+                          UPDATE
+                        </Button>
                         &nbsp;&nbsp;&nbsp;
-                        <Button variant="outline-primary">DELETE</Button>
+                        <Button
+                          variant="outline-danger"
+                          onClick={(e) => deletedata(data.id)}
+                        >
+                          DELETE
+                        </Button>
                       </Card.Body>
                     </Card>
                   </div>
-                </Row>
-              </Container>
-            </div>
-          );
-        })
-      )}
+                </div>
+              );
+            })}
+        </div>
+      </div>
+      <br />
+      <br />
     </div>
   );
 };

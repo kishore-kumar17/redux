@@ -1,43 +1,54 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from 'axios';
+import axios from "axios";
 
-const initialState ={
-    loading :false,
-    posts:[],
-    error:"",
-}
+const initialState = {
+  loading: false,
+  posts: [],
+  error: "",
+};
 
-export const fetchUsers =createAsyncThunk('post/fetchUsers',()=>{
-    return axios
-    .get ("https://mocki.io/v1/c767e43d-0c00-470f-913b-95a07e1c9a03")
-    .then((res)=>res.data
-    )
+export const fetchUsers = createAsyncThunk("post/fetchUsers", () => {
+  return axios.get("http://localhost:9000/posts").then((res) => res.data)
+});
+
+export const addUsers = createAsyncThunk('post/addusers', (val) =>{
+  console.log(val)
+  return axios.post('http://localhost:9000/posts',val)
+  .then((responce) => responce.data)
 })
 
-export const addUsers =createAsyncThunk ('post/addUsers',(val)=>{
-    return axios
-    .post("https://mocki.io/v1/c767e43d-0c00-470f-913b-95a07e1c9a03",val)
-    .then((responce)=>responce.data)
+export const deleteUsers =createAsyncThunk('post/deleteusers',(users)=>{
+  // console.log(users)
+  return axios.delete(`http://localhost:9000/posts/${users}`)
+  .then ((res)=>res.data)
 })
 
-const postSlice = createSlice ({
-    name:'post',
-    initialState,
-    extraReducers:(bulider)=>{
-        bulider.addCase(fetchUsers.pending,(state)=>{
-            state.loading=true  
-        })
-        bulider.addCase(fetchUsers.fulfilled,(state,action)=>{
-            state.loading =false
-            state.posts =action.payload
-            state.error=''
-        })
-        bulider.addCase(fetchUsers.rejected,(state,action)=>{
-            state.loading=false
-            state.posts=[]
-            state.error=action.error.message
-        })
-    }
+export const editUsers = createAsyncThunk ('post/editusers',(editdata)=>{
+  return axios
+  .put(`http://localhost:9000/posts/posts/${editdata.id}`,editdata)
+  .then((res)=>res.data)
 })
 
-export default postSlice.reducer
+
+const postSlice = createSlice({
+  name: "post",
+  initialState,
+  extraReducers: (bind) => {
+    bind.addCase(fetchUsers.pending, (state) => {
+      state.loading = true;
+    });
+    bind.addCase(fetchUsers.fulfilled, (state, action) => {
+      state.loading = false;
+      state.posts = action.payload;
+      state.error = '';
+    });
+    bind.addCase(fetchUsers.rejected, (state, action) => {
+      state.loading = false;
+      state.posts = [];
+      state.error = action.error.message;
+    });
+  },
+});
+
+
+export default postSlice.reducer;

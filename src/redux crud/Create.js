@@ -6,21 +6,21 @@ import { useDispatch } from "react-redux";
 import { addUsers } from "./postSlice";
 
 const Create = () => {
+  const dispatch = useDispatch();
   const [data, setdata] = useState({});
   const [error, seterror] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const val = {
-    name:data.name,
-    fathersname:data.fathersname,
-    adharnumber:data.adharnumber,
-    mobilenumber:data.mobilenumber,
-    dob:data.dob
-  }
+    name: data.name,
+    fathername: data.fathername,
+    adharnumber: data.adharnumber,
+    mobilenumber: data.mobilenumber,
+    dob: data.dob,
+  };
+  // console.log(val);
+  // adhar card regex ;
 
-
-//adhar card regex ;
-// const adhar = ^\d{4}\s\d{4}\s\d{4}$ ;
 
 
   const change = (e) => {
@@ -29,7 +29,8 @@ const Create = () => {
     if (!e.target.value) {
       seterror({
         ...error,
-        [e.target.name]: `${e.target.name} CAN'T BE EMPTY SO FILL IN THE VALUES `,
+        [e.target
+          .name]: `${e.target.name} CAN'T BE EMPTY SO FILL IN THE VALUES `,
       });
     } else {
       seterror({ ...error, [e.target.name]: "" });
@@ -38,18 +39,32 @@ const Create = () => {
   };
 
 
+//validation....
 
+  const handlesubmit = (e) => {
+    const adhar = /[01]\d{3}[\s-]?\d{4}[\s-]?\d{4}/;
+    const mnum =/^([+]\d{2}[ ])?\d{10}$/;
 
-  const submit = (e) => {
     e.preventDefault();
-    setdata({ ...data, [e.target.name]: e.target.value });
-    // console.log(data);
-
-
-
-
-dispatch(addUsers(val))
-    navigate("/viewcrud");
+    if (!data.name) {
+      seterror({ name: "NAME is important in adhar card" });
+    } else if (!data.fathername) {
+      seterror({ fathername: "FATHER NAME  is important in adhar card" });
+    } else if (!data.adharnumber) {
+      seterror({ adharnumber: "ADHAR NUMBER is must" });
+    } else if (!data.adharnumber.match(adhar)) {
+      seterror({ adharnumber: "ADHAR NUMBER invalid twele numbers only" });
+    } else if (!data.mobilenumber) {
+      seterror({ mobilenumber: "MOBILE NUMBER  is important in adhar card" });
+    }else if (!data.mobilenumber.match(mnum)) {
+      seterror({ mobilenumber: "MOBILE NUMBER  is invalid place enter a valid number" });
+    } else if (!data.dob) {
+      seterror({ dob: "DATE OF BIRTH is important in adhar card" });
+    } else {
+      dispatch(addUsers(val));
+      navigate("/viewcrud");
+    }
+   
   };
 
   return (
@@ -57,7 +72,7 @@ dispatch(addUsers(val))
       <h2>SIGNIN ADHAR </h2>
       <div className="container col-4 mt-5 box">
         <div className="row">
-          <Form onSubmit={(e) => submit(e)}>
+          <Form onSubmit={handlesubmit}>
             <div>
               <Form.Label> NAME :</Form.Label>
               <Form.Control
@@ -66,7 +81,9 @@ dispatch(addUsers(val))
                 autoFocus
                 onChange={(e) => change(e)}
               ></Form.Control>
-              <span style={{ color: "red" }} pattern="[a-z]*">{error.name}</span>
+              <span style={{ color: "red" }} pattern="[a-z]*">
+                {error.name}
+              </span>
             </div>
             <br />
             <div>
@@ -82,8 +99,9 @@ dispatch(addUsers(val))
             <div>
               <Form.Label> ADHAR NUMBER :</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 name="adharnumber"
+                placeholder="0394-2839-7825"
                 onChange={(e) => change(e)}
               ></Form.Control>
               <span style={{ color: "red" }}>{error.adharnumber}</span>
@@ -114,7 +132,7 @@ dispatch(addUsers(val))
                 SIGNIN
               </Button>
             </div>
-          </Form> 
+          </Form>
         </div>
       </div>
     </div>
