@@ -7,14 +7,17 @@ const initialState = {
   error: "",
 };
 
+// actions here
+
 export const fetchUsers = createAsyncThunk("post/fetchUsers", () => {
   return axios.get("http://localhost:9000/posts").then((res) => res.data)
 });
 
 export const addUsers = createAsyncThunk('post/addusers', (val) =>{
-  console.log(val)
+  // console.log(val)
   return axios.post('http://localhost:9000/posts',val)
   .then((responce) => responce.data)
+  // .catch((error)=>error.data)
 })
 
 export const deleteUsers =createAsyncThunk('post/deleteusers',(users)=>{
@@ -23,11 +26,16 @@ export const deleteUsers =createAsyncThunk('post/deleteusers',(users)=>{
   .then ((res)=>res.data)
 })
 
-export const editUsers = createAsyncThunk ('post/editusers',(editdata)=>{
+export const editUsers = createAsyncThunk ('post/editusers',(changeval)=>{
+  // console.log(changeval)
   return axios
-  .put(`http://localhost:9000/posts/posts/${editdata.id}`,editdata)
+  .put(`http://localhost:9000/posts/${changeval.id}`,changeval)
   .then((res)=>res.data)
 })
+
+
+
+
 
 
 const postSlice = createSlice({

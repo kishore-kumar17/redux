@@ -48,9 +48,14 @@ const Viewcrud = () => {
                   <div className="col-lg-4-md-6 mt-3">
                     <Card style={{ width: "600px" }}>
                       <Card.Img
+                        src="https://ih1.redbubble.net/image.3096753269.1899/fposter,small,wall_texture,product,750x1000.jpg"
+                        id="logo"
+                        title="asokachakram logo"
+                      />
+                      <Card.Img
                         variant="top"
                         src="https://thumbs.dreamstime.com/b/user-icon-member-login-vector-isolated-white-background-form-155134186.jpg"
-                        // style={{ width: "200px" }}
+                        style={{ width: "180px" }}
                       />
                       <hr />
                       <Card.Body>
@@ -70,7 +75,7 @@ const Viewcrud = () => {
                         >
                           UPDATE
                         </Button>
-                        &nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <Button
                           variant="outline-danger"
                           onClick={(e) => deletedata(data.id)}
