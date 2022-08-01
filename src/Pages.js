@@ -28,7 +28,10 @@ const Pages = () => {
           <Link to="/viewcrud">viewcrud</Link>
         </li>
         <li>
-          <Link to="/editcrud">editcrud</Link>
+          <Link to="/home">socket io</Link>
+        </li>
+        <li>
+          <Link to="/:roomId">socket io</Link>
         </li>
       </ul>
     </div>

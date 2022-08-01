@@ -8,6 +8,8 @@ import Counter from "./toolkit/Counter";
 import Create from "./redux crud/Create";
 import Viewcrud from "./redux crud/Viewcrud";
 import Editcrud from "./redux crud/Editcrud";
+import Home from "./socket io/Home";
+import Chatroom from "./socket io/Chatroom";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/crud" element={<Create />}></Route> 
           <Route path="/viewcrud" element={<Viewcrud />}></Route> 
           <Route path="/editcrud/:id" element={<Editcrud  />}></Route>
+          <Route path="/home" element={<Home />}></Route> 
+          <Route path="/:roomId" element={<Chatroom />}></Route> 
         </Routes>
       </BrowserRouter>
     </div>

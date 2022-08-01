@@ -3,7 +3,7 @@ import "./Viewcrud.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUsers, fetchUsers } from "./postSlice";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Viewcrud = () => {
@@ -26,6 +26,24 @@ const Viewcrud = () => {
     dispatch(fetchUsers());
   };
 
+  // return(
+  //       <Modal.Dialog>
+  //       <Modal.Header closeButton>
+  //         <Modal.Title>CONFRIM DELETE</Modal.Title>
+  //       </Modal.Header>
+
+  //       <Modal.Body>
+  //         <p> ARE YOU CONFRIM TO DELETE DATA....</p>
+  //       </Modal.Body>
+
+  //       <Modal.Footer>
+  //         <Button variant="outline-secondary">Close</Button>
+  //         <Button variant="primary">DELETE</Button>
+  //       </Modal.Footer>
+  //     </Modal.Dialog>
+  //     )
+  //   };
+
   const editdata = (id) => {
     navi(`/editcrud/${id}`);
   };
@@ -33,7 +51,6 @@ const Viewcrud = () => {
   return (
     <div>
       <h1>ADHAR CARD DETAILS</h1>
-
       <Button variant="outline-danger" onClick={(e) => change(e)}>
         ADD NEW ADHAR
       </Button>
@@ -44,54 +61,45 @@ const Viewcrud = () => {
             post.posts &&
             post.posts.map((data, i) => {
               return (
-                <div key={i}>
-                  <div className="col-lg-4-md-6 mt-3">
-                    <Card style={{ width: "600px" }}>
-                      <Card.Img
-                        src="https://ih1.redbubble.net/image.3096753269.1899/fposter,small,wall_texture,product,750x1000.jpg"
-                        id="logo"
-                        title="asokachakram logo"
-                      />
-                      <Card.Img
-                        variant="top"
-                        src="https://thumbs.dreamstime.com/b/user-icon-member-login-vector-isolated-white-background-form-155134186.jpg"
-                        style={{ width: "180px" }}
-                      />
+                <div className="col-lg-4 mb-4">
+                  <div class="card mx-3" style={{ width: "20rem" }}>
+                    <img
+                      src="https://ih1.redbubble.net/image.3096753269.1899/fposter,small,wall_texture,product,750x1000.jpg"
+                      class="img-fluid"
+                      alt="asogachakra logo"
+                      title="asoga chakkaram"
+                      id="asogachakram"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{data.name}</h5>
                       <hr />
-                      <Card.Body>
-                        <Card.Title> ADHAR CARD DETAILS</Card.Title>
-                        <Card.Text>
-                          <p>NAME : {data.name}</p>
-                          <p>FAHTHER's NAME :{data.fathername}</p>
-                          <p>DOB : {data.dob}</p>
-                          <p> MOBILE NUMBER : {data.mobilenumber}</p>
-                          <hr />
-                          <p>ADHAR NUMBER : {data.adharnumber}</p>
-                        </Card.Text>
-                        <hr />
-                        <Button
-                          variant="outline-primary"
-                          onClick={(e) => editdata(data.id)}
-                        >
-                          UPDATE
-                        </Button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Button
-                          variant="outline-danger"
-                          onClick={(e) => deletedata(data.id)}
-                        >
-                          DELETE
-                        </Button>
-                      </Card.Body>
-                    </Card>
+                      <p>FATHER NAME :{data.fathername}</p>
+                      <p> MOBILE NUMBER : {data.mobilenumber}</p>
+                      <p>DOB :{data.dob}</p>
+                      <hr />
+                      <p>AADHAR NUMBER : {data.adharnumber}</p>
+                      <hr />
+                      <Button
+                        variant="outline-primary"
+                        onClick={(e) => editdata(data.id)}
+                      >
+                        UPDATE
+                      </Button>
+
+                      <Button
+                        className="float-end"
+                        variant="outline-danger"
+                        onClick={(e) => deletedata(data.id)}
+                      >
+                        DELETE
+                      </Button>
+                    </div>
                   </div>
                 </div>
               );
             })}
         </div>
       </div>
-      <br />
-      <br />
     </div>
   );
 };

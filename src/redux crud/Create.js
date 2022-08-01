@@ -21,8 +21,6 @@ const Create = () => {
   // console.log(val);
   // adhar card regex ;
 
-
-
   const change = (e) => {
     e.preventDefault();
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -38,12 +36,11 @@ const Create = () => {
     // console.log(data);
   };
 
-
-//validation....
+  //validation....
 
   const handlesubmit = (e) => {
     const adhar = /[01]\d{3}[\s-]?\d{4}[\s-]?\d{4}/;
-    const mnum =/^([+]\d{2}[ ])?\d{10}$/;
+    const mnum = /^([+]\d{2}[ ])?\d{10}$/;
 
     e.preventDefault();
     if (!data.name) {
@@ -56,21 +53,24 @@ const Create = () => {
       seterror({ adharnumber: "ADHAR NUMBER invalid twele numbers only" });
     } else if (!data.mobilenumber) {
       seterror({ mobilenumber: "MOBILE NUMBER  is important in adhar card" });
-    }else if (!data.mobilenumber.match(mnum)) {
-      seterror({ mobilenumber: "MOBILE NUMBER  is invalid place enter a valid number" });
+    } else if (!data.mobilenumber.match(mnum)) {
+      seterror({
+        mobilenumber: "MOBILE NUMBER  is invalid place enter a valid number",
+      });
     } else if (!data.dob) {
       seterror({ dob: "DATE OF BIRTH is important in adhar card" });
     } else {
       dispatch(addUsers(val));
       navigate("/viewcrud");
     }
-   
   };
 
   return (
     <div>
-      <h2>SIGNIN ADHAR </h2>
+      <h3 style={{ textAlign: "center",marginTop:'20px' }}>SIGNIN ADHAR </h3>
+
       <div className="container col-4 mt-5 box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXG-ROFfp8aoKyQz-gYy3SnXE7udtcegMXu4U3_i1m8fHbS9PAsstlRqQgc84_y-OgEtQ&usqp=CAU" id="logo"/>
         <div className="row">
           <Form onSubmit={handlesubmit}>
             <div>
@@ -97,7 +97,7 @@ const Create = () => {
             </div>
             <br />
             <div>
-              <Form.Label> ADHAR NUMBER :</Form.Label>
+              <Form.Label> AADHAAR NUMBER :</Form.Label>
               <Form.Control
                 type="text"
                 name="adharnumber"
@@ -116,7 +116,6 @@ const Create = () => {
               ></Form.Control>
               <span style={{ color: "red" }}>{error.mobilenumber}</span>
             </div>
-            <br />
             <div>
               <Form.Label> DOB :</Form.Label>
               <Form.Control

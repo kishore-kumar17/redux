@@ -2,10 +2,27 @@
     border:1px solid black;
     padding: 30px;
     border-radius: 20px;
-    background-color: blanchedalmond;
     opacity: 1.2;
+    background-image: linear-gradient(to top, orange,white,white,green);
+}
+#logo{
+    border-radius: 30px;
+    margin-left: 220px;
+    height: 100px;
+    /* opacity: 1.9; */
+}
+.boxes{
+    border:1px solid black;
+    padding: 30px;
+    border-radius: 20px;
+background-image: linear-gradient(to left,orange,white,green);
+
 
 }
+
+
+
+
 
     /* input:invalid{animation: shake 300ms;}
 

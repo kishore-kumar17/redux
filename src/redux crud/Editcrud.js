@@ -18,7 +18,7 @@ const Editcrud = () => {
 
   const updatedata =
     upgrad && upgrad.posts.find((data) => data.id === parseInt(id));
-//   console.log(updatedata);
+  //   console.log(updatedata);
   useEffect(() => {
     if (updatedata) {
       seteditdata(updatedata);
@@ -33,7 +33,7 @@ const Editcrud = () => {
     mobilenumber: editdata.mobilenumber,
     dob: editdata.dob,
   };
-//   console.log(changeval);
+  //   console.log(changeval);
 
   const change = (e) => {
     e.preventDefault();
@@ -51,13 +51,10 @@ const Editcrud = () => {
   };
 
   const handlesubmit = (e) => {
-
-
     //regex adhar,mobilenumber
 
     const adhar = /[01]\d{3}[\s-]?\d{4}[\s-]?\d{4}/;
     const mnum = /^([+]\d{2}[ ])?\d{10}$/;
-
 
     //validation....
 
@@ -87,74 +84,76 @@ const Editcrud = () => {
   return (
     <div>
       <h2>SIGNIN ADHAR </h2>
-      <div className="container col-4 mt-5 box">
-        <div className="row">
-          <Form onSubmit={handlesubmit}>
-            <div>
-              <Form.Label> NAME :</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                autoFocus
-                value={editdata.name}
-                onChange={(e) => change(e)}
-              ></Form.Control>
-              <span style={{ color: "red" }} pattern="[a-z]*">
-                {error.name}
-              </span>
-            </div>
-            <br />
-            <div>
-              <Form.Label> FATHER'S NAME :</Form.Label>
-              <Form.Control
-                type="text"
-                name="fathername"
-                onChange={(e) => change(e)}
-                value={editdata.fathername}
-              ></Form.Control>
-              <span style={{ color: "red" }}>{error.fathername}</span>
-            </div>
-            <br />
-            <div>
-              <Form.Label> ADHAR NUMBER :</Form.Label>
-              <Form.Control
-                type="text"
-                name="adharnumber"
-                placeholder="0394-2839-7825"
-                value={editdata.adharnumber}
-                onChange={(e) => change(e)}
-              ></Form.Control>
-              <span style={{ color: "red" }}>{error.adharnumber}</span>
-            </div>
-            <br />
-            <div>
-              <Form.Label> MOBILE NUMBER :</Form.Label>
-              <Form.Control
-                type="number"
-                name="mobilenumber"
-                onChange={(e) => change(e)}
-                value={editdata.mobilenumber}
-              ></Form.Control>
-              <span style={{ color: "red" }}>{error.mobilenumber}</span>
-            </div>
-            <br />
-            <div>
-              <Form.Label> DOB :</Form.Label>
-              <Form.Control
-                type="date"
-                name="dob"
-                onChange={(e) => change(e)}
-                value={editdata.dob}
-              ></Form.Control>
-              <span style={{ color: "red" }}>{error.dob}</span>
-            </div>
-            <br />
-            <div>
-              <Button type="submit" variant="warning">
-                UPDATE
-              </Button>
-            </div>
-          </Form>
+      <div className="container mt-5 box">
+        <div>
+          <div className="row">
+            <Form onSubmit={handlesubmit}>
+              <div>
+                <Form.Label> NAME :</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  autoFocus
+                  value={editdata.name}
+                  onChange={(e) => change(e)}
+                ></Form.Control>
+                <span style={{ color: "red" }} pattern="[a-z]*">
+                  {error.name}
+                </span>
+              </div>
+              <br />
+              <div>
+                <Form.Label> FATHER'S NAME :</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="fathername"
+                  onChange={(e) => change(e)}
+                  value={editdata.fathername}
+                ></Form.Control>
+                <span style={{ color: "red" }}>{error.fathername}</span>
+              </div>
+              <br />
+              <div>
+                <Form.Label> ADHAR NUMBER :</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="adharnumber"
+                  placeholder="0394-2839-7825"
+                  value={editdata.adharnumber}
+                  onChange={(e) => change(e)}
+                ></Form.Control>
+                <span style={{ color: "red" }}>{error.adharnumber}</span>
+              </div>
+              <br />
+              <div>
+                <Form.Label> MOBILE NUMBER :</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="mobilenumber"
+                  onChange={(e) => change(e)}
+                  value={editdata.mobilenumber}
+                ></Form.Control>
+                <span style={{ color: "red" }}>{error.mobilenumber}</span>
+              </div>
+              <br />
+              <div>
+                <Form.Label> DOB :</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="dob"
+                  onChange={(e) => change(e)}
+                  value={editdata.dob}
+                ></Form.Control>
+                <span style={{ color: "red" }}>{error.dob}</span>
+              </div>
+              <br />
+              <div>
+                <Button type="submit" variant="info">
+                  UPDATE
+                </Button>
+              </div>
+            </Form>
+          </div>
         </div>
       </div>
     </div>
