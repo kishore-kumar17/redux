@@ -1,0 +1,16 @@
+.my-message{
+    background-color: rgb(207, 201, 201);
+    padding: 10px;
+    border-radius: 95px;
+    color: black !important;
+    margin-left: auto !important;
+    font-weight: bold;
+}
+.received-message{
+    background: transparent;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    margin-right: auto;
+    border: 3px solid white;
+}

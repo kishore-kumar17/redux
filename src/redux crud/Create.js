@@ -18,8 +18,6 @@ const Create = () => {
     mobilenumber: data.mobilenumber,
     dob: data.dob,
   };
-  // console.log(val);
-  // adhar card regex ;
 
   const change = (e) => {
     e.preventDefault();
@@ -39,8 +37,10 @@ const Create = () => {
   //validation....
 
   const handlesubmit = (e) => {
+    // regex validation
     const adhar = /[01]\d{3}[\s-]?\d{4}[\s-]?\d{4}/;
     const mnum = /^([+]\d{2}[ ])?\d{10}$/;
+    // const dateRegex =
 
     e.preventDefault();
     if (!data.name) {
@@ -59,6 +59,10 @@ const Create = () => {
       });
     } else if (!data.dob) {
       seterror({ dob: "DATE OF BIRTH is important in adhar card" });
+    } else if (!data.dob.match()) {
+      seterror({
+        dob: "enter a valid date of birth",
+      });
     } else {
       dispatch(addUsers(val));
       navigate("/viewcrud");
@@ -67,10 +71,13 @@ const Create = () => {
 
   return (
     <div>
-      <h3 style={{ textAlign: "center",marginTop:'20px' }}>SIGNIN ADHAR </h3>
+      <h3 style={{ textAlign: "center", marginTop: "20px" }}>SIGNIN ADHAR </h3>
 
       <div className="container col-4 mt-5 box">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXG-ROFfp8aoKyQz-gYy3SnXE7udtcegMXu4U3_i1m8fHbS9PAsstlRqQgc84_y-OgEtQ&usqp=CAU" id="logo"/>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXG-ROFfp8aoKyQz-gYy3SnXE7udtcegMXu4U3_i1m8fHbS9PAsstlRqQgc84_y-OgEtQ&usqp=CAU"
+          id="logo"
+        />
         <div className="row">
           <Form onSubmit={handlesubmit}>
             <div>

@@ -13,11 +13,15 @@ const Home = () => {
 
     }
   return (
-    <div>
+    <div style={{backgroundColor:'lightgray',minHeight:'100vh'}}>
         <h2>SOCKET IO</h2>
-        <input  type="text" placeholder='room' onChange={change} value={roomname}></input>
+        <div style={{textAlign:'center',margin:'200px',}}>
+        <textarea  type="text" placeholder='room' onChange={change} value={roomname}></textarea>
+        <br/>
+
         <Link to={`/${roomname}`}> 
-        <Button variant='outline-warning'>JOIN ROOM</Button></Link>
+        <Button variant='warning' style={{margin:'50px'}}>JOIN ROOM</Button></Link>
+        </div>
     </div>
   )
 }

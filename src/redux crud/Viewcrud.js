@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Viewcrud.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUsers, fetchUsers } from "./postSlice";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Viewcrud = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const navi = useNavigate();
+  const [show, setshow] = useState(false);
   const post = useSelector((state) => state.post);
+
   // console.log(post);
 
   useEffect(() => {
@@ -22,31 +24,19 @@ const Viewcrud = () => {
   };
 
   const deletedata = (id) => {
+    setshow(true);
     dispatch(deleteUsers(id));
     dispatch(fetchUsers());
   };
 
-  // return(
-  //       <Modal.Dialog>
-  //       <Modal.Header closeButton>
-  //         <Modal.Title>CONFRIM DELETE</Modal.Title>
-  //       </Modal.Header>
-
-  //       <Modal.Body>
-  //         <p> ARE YOU CONFRIM TO DELETE DATA....</p>
-  //       </Modal.Body>
-
-  //       <Modal.Footer>
-  //         <Button variant="outline-secondary">Close</Button>
-  //         <Button variant="primary">DELETE</Button>
-  //       </Modal.Footer>
-  //     </Modal.Dialog>
-  //     )
-  //   };
-
   const editdata = (id) => {
     navi(`/editcrud/${id}`);
   };
+
+  const del =(id)=>{
+    setshow(false)
+  }
+
 
   return (
     <div>
@@ -85,7 +75,6 @@ const Viewcrud = () => {
                       >
                         UPDATE
                       </Button>
-
                       <Button
                         className="float-end"
                         variant="outline-danger"
@@ -93,6 +82,24 @@ const Viewcrud = () => {
                       >
                         DELETE
                       </Button>
+
+                      {show && <Modal show={show} >
+
+                        <Modal.Header closeButton>
+                          <Modal.Title>Modal</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          ARE YOU SURE DELETE THIS DATA!!!
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button variant="outline-secondary" onClick={del} >
+                            NO
+                          </Button>
+                          <Button variant="outline-primary"  >
+                            YES
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>}
                     </div>
                   </div>
                 </div>

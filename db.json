@@ -1,36 +1,3 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "name": "k",
-      "fathername": "k",
-      "adharnumber": "1212 1212 1212",
-      "mobilenumber": "1212121212",
-      "dob": "1999-12-06"
-    },
-    {
-      "id": 2,
-      "name": "Cecilia Figueroa",
-      "fathername": "Colorado Heath",
-      "adharnumber": "1212 1212 1212",
-      "mobilenumber": "1234567890",
-      "dob": "2022-07-01"
-    },
-    {
-      "name": "kishore",
-      "fathername": "kumar",
-      "adharnumber": "123456789012",
-      "mobilenumber": "1234567890",
-      "dob": "2022-08-22",
-      "id": 3
-    },
-    {
-      "name": "sureash",
-      "fathername": "kumar",
-      "adharnumber": "123456789012",
-      "mobilenumber": "0987654321",
-      "dob": "2021-12-12",
-      "id": 4
-    }
-  ]
+  "posts": []
 }

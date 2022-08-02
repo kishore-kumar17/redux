@@ -84,7 +84,7 @@ const Editcrud = () => {
   return (
     <div>
       <h2>SIGNIN ADHAR </h2>
-      <div className="container mt-5 box">
+      <div className="container mt-5 box col-4">
         <div>
           <div className="row">
             <Form onSubmit={handlesubmit}>
