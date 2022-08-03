@@ -87,6 +87,7 @@ const Create = () => {
                 name="name"
                 autoFocus
                 onChange={(e) => change(e)}
+                data-testid="name"
               ></Form.Control>
               <span style={{ color: "red" }} pattern="[a-z]*">
                 {error.name}

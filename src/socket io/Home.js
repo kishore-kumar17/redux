@@ -20,7 +20,7 @@ const Home = () => {
         <br/>
 
         <Link to={`/${roomname}`}> 
-        <Button variant='warning' style={{margin:'50px'}}>JOIN ROOM</Button></Link>
+        <Button variant='warning'  style={{margin:'50px'}}>JOIN ROOM</Button></Link>
         </div>
     </div>
   )

@@ -15,9 +15,6 @@ const Pages = () => {
         <li>
           <Link to="/view">VIEW</Link>
         </li>
-        {/* <li>
-          <Link to="/edit">Edit</Link>
-        </li> */}
         <li>
           <Link to="/counter">toolkit counter</Link>
         </li>
@@ -32,6 +29,9 @@ const Pages = () => {
         </li>
         <li>
           <Link to="/:roomId">socket io</Link>
+        </li>
+        <li>
+          <Link to="/test">counter app</Link>
         </li>
       </ul>
     </div>
