@@ -32,7 +32,18 @@ const Create = () => {
       seterror({ ...error, [e.target.name]: "" });
     }
     // console.log(data);
+    //test cases.....>>>
+
+
+
+
+
+
+
+
   };
+
+
 
   //validation....
 
@@ -88,6 +99,7 @@ const Create = () => {
                 autoFocus
                 onChange={(e) => change(e)}
                 data-testid="name"
+                value = {data.name}
               ></Form.Control>
               <span style={{ color: "red" }} pattern="[a-z]*">
                 {error.name}
@@ -100,6 +112,8 @@ const Create = () => {
                 type="text"
                 name="fathername"
                 onChange={(e) => change(e)}
+                value = {data.fathername}
+                data-testid="fathername"
               ></Form.Control>
               <span style={{ color: "red" }}>{error.fathername}</span>
             </div>
@@ -111,6 +125,8 @@ const Create = () => {
                 name="adharnumber"
                 placeholder="0394-2839-7825"
                 onChange={(e) => change(e)}
+                value = {data.adharnumber}
+                data-testid="adharnumber"
               ></Form.Control>
               <span style={{ color: "red" }}>{error.adharnumber}</span>
             </div>
@@ -121,6 +137,8 @@ const Create = () => {
                 type="number"
                 name="mobilenumber"
                 onChange={(e) => change(e)}
+                value = {data.mobilenumber}
+                data-testid="mobilenumber"
               ></Form.Control>
               <span style={{ color: "red" }}>{error.mobilenumber}</span>
             </div>
@@ -130,6 +148,8 @@ const Create = () => {
                 type="date"
                 name="dob"
                 onChange={(e) => change(e)}
+                value = {data.dob}
+                data-testid="dob"
               ></Form.Control>
               <span style={{ color: "red" }}>{error.dob}</span>
             </div>
