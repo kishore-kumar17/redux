@@ -11,7 +11,6 @@ test("increment add", () => {
   fireEvent.click(addincrement);
 //   fireEvent.click(del);
 
-
-
   expect(count).toHaveTextContent("5");
+
 });

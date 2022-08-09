@@ -1,4 +1,4 @@
-.my-message{
+.send-message{
     background-color: rgb(207, 201, 201);
     padding: 10px;
     border-radius: 95px;
@@ -6,11 +6,65 @@
     margin-left: auto !important;
     font-weight: bold;
 }
-.received-message{
-    background: transparent;
+.receiver-message{
+    background-color: rgb(207, 201, 201);
     padding: 10px;
     border-radius: 15px;
     color: white;
     margin-right: auto;
     border: 3px solid white;
+}
+
+
+.messages{
+    min-height: 70vh;
+    background-image: url("https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdCUyMGFwcGxpY2F0aW9uJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+
+.message-item {
+    width: 55%;
+    margin: 8px;
+    padding: 12px 8px;
+    word-break: break-word;
+    border-radius: 4px;
+    color:black;
+}
+.topone{
+    position: relative;
+}
+.send{
+    padding: 6px 45px;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 6px;
+
+}
+.home{
+    background-color: aqua;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-card{
+    display: flex;
+    flex-direction: column;
+}
+.home-input{
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+.home-button{
+    border: 2px solid black;
+    margin-top: 10px;
 }

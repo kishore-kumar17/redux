@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Viewcrud.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUsers, fetchUsers } from "./postSlice";

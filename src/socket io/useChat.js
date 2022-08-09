@@ -12,7 +12,7 @@ const useChat = (roomId) => {
     socketref.current = socketIOClient(SOCKET_SERVERURL, {
       query: { roomId },
     });
-
+    
     socketref.current.on(NEW_CHAT, (message) => {
       const incomingChat = {
         ...message,

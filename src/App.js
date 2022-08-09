@@ -11,6 +11,7 @@ import Home from "./socket io/Home";
 import Chatroom from "./socket io/Chatroom";
 import React from "react";
 import Counterr from "./test case/CounterApp";
+import { Spinner } from "react-bootstrap";
 
 // import Pages from "./Pages";
 // react lazyloading
@@ -29,7 +30,9 @@ function App() {
             element={
               <React.Suspense
                 fallback={
-                  <h1 style={{ color: "blue" }}>LOADING pleace wait.....</h1>
+                  <h1 style={{ color: "blue" }}>LOADING pleace wait...    
+                    <Spinner animation="grow" variant="info" />
+                  </h1>
                 }
               >
                 <Lazypart />
@@ -41,6 +44,8 @@ function App() {
           <Route path="view" element={<View />}></Route>
           <Route path="/edit/:id" element={<Edit />}></Route>
           <Route path="/counter" element={<Counter />}></Route>
+
+          
           <Route path="/crud" element={<Create />}></Route>
           <Route path="/viewcrud" element={<Viewcrud />}></Route>
           <Route path="/editcrud/:id" element={<Editcrud />}></Route>

@@ -20,6 +20,7 @@ export const addUsers = createAsyncThunk('post/addusers', (val) =>{
   // .catch((error)=>error.data)
 })
 
+
 export const deleteUsers =createAsyncThunk('post/deleteusers',(users)=>{
   // console.log(users)
   return axios.delete(`http://localhost:9000/posts/${users}`)
